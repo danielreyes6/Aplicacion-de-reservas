@@ -1,0 +1,17 @@
+# .gitignore
+
+# Archivo que especifica archivos y directorios intencionadamente no rastreados por Git.
+# Los archivos y directorios listados aquí serán ignorados por Git,
+# lo que es útil para no incluir dependencias, archivos de configuración local,
+# o archivos generados que no deben ser parte del repositorio.
+
+# Dependencias del proyecto instaladas por npm.
+# Contiene todas las bibliotecas de terceros que tu proyecto necesita.
+# Este directorio se regenera ejecutando 'npm install', por lo que no necesita ser versionado.
+node_modules/
+
+# Archivo de variables de entorno.
+# Contiene información sensible como credenciales de base de datos, claves API, etc.
+# Este archivo debe ser local para cada desarrollador o entorno de despliegue
+# y no debe subirse al repositorio público por motivos de seguridad.
+.env

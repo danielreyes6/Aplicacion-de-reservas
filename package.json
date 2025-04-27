@@ -1,0 +1,30 @@
+
+{
+  "name": "aplicacion-de-reservas",
+  "version": "1.0.0",
+  "description": "Estructura de la pagina es:\r /frontend\r  ├── public/\r  └── src/\r      ├── components/    # UI (Form, Table, SeatMap)\r      ├── pages/         # Login, Dashboard, ReservationForm\r      ├── services/      # API wrappers (axios)\r      ├── routes/        # React Router setup\r      └── utils/         # hooks, helpers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielreyes6/Aplicacion-de-reservas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielreyes6/Aplicacion-de-reservas/issues"
+  },
+  "homepage": "https://github.com/danielreyes6/Aplicacion-de-reservas#readme",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
