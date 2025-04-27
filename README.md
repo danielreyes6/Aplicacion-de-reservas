@@ -1,26 +1,25 @@
 # Aplicacion-de-reservas
-Estructura de la pagina es:
-/frontend
- ├── public/
- └── src/
-     ├── components/    # UI (Form, Table, SeatMap)
-     ├── pages/         # Login, Dashboard, ReservationForm
-     ├── services/      # API wrappers (axios)
-     ├── routes/        # React Router setup
-     └── utils/         # hooks, helpers
-
-/backend
- ├── src/
- │   ├── controllers/  # Express routes handlers
- │   ├── services/     # Lógica de negocio
- │   ├── dao/          # Clases DAO + DAOFactory
- │   ├── models/       # Interfaces/POJOs
- │   ├── strategies/   # CancellationStrategy, etc.
- │   ├── utils/        # DbConnection (Singleton)
- │   └── app.js        # Express setup, middleware, CORS, JWT
- └── config/
-     └── db.config.js  # credenciales MySQL
-
-/tests                 # Jest/React Testing Library
-
-/docs                  # UML (PlantUML), capturas, APA
+Estructura de la pagina actual en main es:
+APLICACION-DE-RESERVAS
+├── Backend
+│   ├── controllers
+│   │   ├── authController.js
+│   │   └── reservaController.js
+│   ├── dao
+│   │   └── dbConnectionSingleton.js
+│   ├── models
+│   │   ├── reserva.js
+│   │   └── usuario.js
+│   ├── patterns
+│   │   └── userFactory.js
+│   ├── services
+│   │   ├── reservaService.js
+│   │   └── usuarioService.js
+│   └── .env
+├── Fronted
+├── node_modules
+├── .gitignore
+├── app.js
+├── package-lock.json
+├── package.json
+└── README.md
