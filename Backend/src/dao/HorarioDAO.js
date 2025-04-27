@@ -1,9 +1,9 @@
-// backend/dao/horarioDAO.js
+// backend/src/dao/horarioDAO.js
 import DB from '../config/server.js';
 
 class HorarioDAO {
   constructor() {
-    this.db = DB.getInstance();
+    this.db = DB;
   }
 
   async crearHora({ HoraInicio, HoraFin }) {
@@ -14,28 +14,28 @@ class HorarioDAO {
     return result.insertId;
   }
 
-  async listarHora() {
+  async listarHoras() {
     const [rows] = await this.db.execute(`SELECT * FROM Hora`);
     return rows;
   }
 
-  async obtenerHoraPorId(id) {
+  async obtenerHorarioPorId(IdHorario) {
     const [rows] = await this.db.execute(
       `SELECT * FROM Hora WHERE IdHora = ?`,
-      [id]
+      [IdHorario]
     );
     return rows[0] || null;
   }
 
-  async actualizarHorario(id, { HoraInicio, HoraFin }) {
+  async actualizarHorario(IdHorario, { HoraInicio, HoraFin }) {
     await this.db.execute(
-      `UPDATE Horario SET HoraInicio = ?, HoraFin = ? WHERE IdHora = ?`,
-      [HoraInicio, HoraFin]
+      `UPDATE Hora SET HoraInicio = ?, HoraFin = ? WHERE IdHorario = ?`,
+      [HoraInicio, HoraFin, IdHorario]
     );
   }
 
-  async eliminarHorario(id) {
-    await this.db.execute(`DELETE FROM Horario WHERE IdHora = ?`, [id]);
+  async eliminarHorario(IdHorario) {
+    await this.db.execute(`DELETE FROM Hora WHERE IdHora = ?`, [IdHorario]);
   }
 }
 

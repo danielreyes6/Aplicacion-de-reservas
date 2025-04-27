@@ -1,9 +1,9 @@
-// backend/dao/mesaDAO.js
+// backend/src/dao/mesaDAO.js
 import DB from '../config/server.js';
 
 class MesaDAO {
   constructor() {
-    this.db = DB.getInstance();
+    this.db = DB;
   }
 
   async crearMesa({ NumeroMesa, Capacidad }) {
@@ -19,23 +19,23 @@ class MesaDAO {
     return rows;
   }
 
-  async obtenerMesaPorId(id) {
+  async obtenerMesaPorId(IdMesa) {
     const [rows] = await this.db.execute(
       `SELECT * FROM Mesa WHERE IdMesa = ?`,
-      [id]
+      [IdMesa]
     );
     return rows[0] || null;
   }
 
-  async actualizarMesa(id, { NumeroMesa, Capacidad }) {
+  async actualizarMesa(IdMesa, { NumeroMesa, Capacidad }) {
     await this.db.execute(
       `UPDATE Mesa SET NumeroMesa = ?, Capacidad = ? WHERE IdMesa = ?`,
-      [NumeroMesa, Capacidad, id]
+      [NumeroMesa, Capacidad, IdMesa]
     );
   }
 
-  async eliminarMesa(id) {
-    await this.db.execute(`DELETE FROM Mesa WHERE IdMesa = ?`, [id]);
+  async eliminarMesa(IdMesa) {
+    await this.db.execute(`DELETE FROM Mesa WHERE IdMesa = ?`, [IdMesa]);
   }
 }
 

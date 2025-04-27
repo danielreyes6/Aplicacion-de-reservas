@@ -1,33 +1,33 @@
-// backend/dao/usuarioDAO.js
+// backend/src/dao/usuarioDAO.js
 import DB from '../config/server.js';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 class UsuarioDAO {
   constructor() {
-    this.db = DB.getInstance();
+    this.db = DB;
   }
 
   async crearUsuario({ Nombre, Usuario, Contrasena, Rol }) {
-    const hash = await bcrypt.hash(password, 12);
+    const hash = await bcrypt.hash(Contrasena, 12);
     const [result] = await this.db.execute(
-      `INSERT INTO Usuario (Nombre, Usuario, Contrasena, Rol) VALUES (?, ?, ?, ?)`,
-      [Nombre, Usuario, hash, rol]
+      `INSERT INTO Usuarios (Nombre, Usuario, Contrasena, Rol) VALUES (?, ?, ?, ?)`,
+      [Nombre, Usuario, hash, Rol]
     );
     return result.insertId;
   }
 
-  async obtenerUsuarioPorEmail(Usuario) {
+  async obtenerUsuario(Usuario) {
     const [rows] = await this.db.execute(
-      `SELECT * FROM Usuario WHERE Usuario = ?`,
+      `SELECT * FROM Usuarios WHERE Usuario = ?`,
       [Usuario]
     );
     return rows[0] || null;
   }
 
-  async obtenerUsuarioPorId(id) {
+  async obtenerUsuarioPorId(IdUsuario) {
     const [rows] = await this.db.execute(
       `SELECT IdUsuario, Nombre, Usuario, Rol FROM Usuario WHERE IdUsuario = ?`,
-      [id]
+      [IdUsuario]
     );
     return rows[0] || null;
   }

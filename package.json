@@ -1,4 +1,3 @@
-
 {
   "name": "aplicacion-de-reservas",
   "version": "1.0.0",
@@ -21,8 +20,10 @@
   },
   "homepage": "https://github.com/danielreyes6/Aplicacion-de-reservas#readme",
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "dotenv": "^16.5.0",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "mysql2": "^3.14.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
